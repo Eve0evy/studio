@@ -1,26 +1,18 @@
-
-<div class="grid">
-  <div class="s12 m4">
-    <article class="small-height no-padding">
-      <img class="responsive" src="{{ MEDIA_URL }}media/A.jpg">
-    </article>
-    <article class="large-height no-padding">
-      <img class="responsive" src="{{ MEDIA_URL }}media/B.jpg">
-    </article>
+{% load static %}
+{% for reihe in reihen %}
+  <div class="grid">
+    {% for spalte in reihe %}
+      <div class="s12 {{ spalte.breite }}">
+        {% for p in spalte.bilder %}
+          <article class="{{ p.hoehe }} no-padding hover-info" tabindex="0">
+            <img class="responsive" src="{{ MEDIA_URL }}{{ p.bild }}" alt="{{ p.titel }}">
+            <div class="card fill blur medium-padding hover-info-card">
+              <h6>{{ p.titel }}</h6>
+              <p>{{ p.text }}</p>
+            </div>
+          </article>
+        {% endfor %}
+      </div>
+    {% endfor %}
   </div>
-
-  <div class="s12 m4">
-    <article class="no-padding" style="height: 100%;">
-      <img class="responsive" src="{{ MEDIA_URL }}media/C.jpg">
-    </article>
-  </div>
-
-  <div class="s12 m4">
-    <article class="large-height no-padding">
-      <img class="responsive" src="{{ MEDIA_URL }}media/D.png">
-    </article>
-    <article class="small-height no-padding">
-      <img class="responsive" src="{{ MEDIA_URL }}media/E.jpg">
-    </article>
-  </div>
-</div>
+{% endfor %} 

@@ -1,23 +1,36 @@
 {% load static %}
 
-<div class="grid">
-  <div class="s12 m8">
-    <article class="center-align">
-      <p>Willkommen bei gopublic.studio</p>
-      <h1 >Sei mit uns sichtbar, präsent, kreativ Content wirkt!</h1>
-      <p > Image - Events Artist Releases
+
+<div class="grid" style="width:100%; align-items:center;">
+  <div class="s12 m8 no-padding" style="display:flex; flex-direction:column; justify-content:center; gap:1rem;">
+    <article class="padding center-align">
+      <h4>Willkommen bei gopublic.studio</h4>
+      <h1>Sei mit uns <br> sichtbar, präsent, kreativ <br> Content wirkt!</h1>
+      <p>
+        Image - Events Artist Releases
         <br>
         Flexibel, individuell und transparent
       </p>
-      <button >Unsere Leistungen</button>
-      <button >Kontakt</button>
+    </article>
+
+    <article class="center-align">
+      <nav class="center-align">
+        <a class="button round" href="https://www.instagram.com/gopublic.studio/" target="_blank" rel="noopener">
+          <i>photo_camera</i>
+          <span>Instagram</span>
+        </a>
+        <a class="button round" href="https://www.tiktok.com/@gopublic.studio" target="_blank" rel="noopener">
+          <i>music_note</i>
+          <span>TikTok</span>
+        </a>
+      </nav>
     </article>
   </div>
 
   <div class="s12 m4">
-  <video style="width: 100%; height: auto; aspect-ratio: 9/16; object-fit: cover; border-radius: 1rem; display: block;"
-         autoplay muted loop playsinline controls>
-    <source src="{{ MEDIA_URL }}media/phone.mp4" type="video/mp4">
-  </video>
-</div>
+    <video class="center" style=" width: 75%; height: auto; aspect-ratio: 9/16; object-fit: cover; border-radius: 1rem; display: block;"
+           autoplay muted loop playsinline controls>
+      <source src="{{ MEDIA_URL }}media/phone.mp4" type="video/mp4">
+    </video>
+  </div>
 </div>

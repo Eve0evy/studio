@@ -1,0 +1,55 @@
+:root,
+body.dark {
+  --background: transparent;
+  --surface: transparent;
+}
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  min-height: 100%;
+  background: linear-gradient(135deg, #1e3c72, #b3366a) fixed;
+}
+
+body,
+body.dark {
+  background: transparent;
+  min-height: 100vh;
+}
+
+article {
+  background-color: rgba(0, 0, 0, 0.3);
+  -webkit-backdrop-filter: blur(16px);
+  backdrop-filter: blur(16px);
+}
+
+:root,
+body.dark {
+  /* Primary #6700a3 */
+  --secondary: #d9a8ff;              /* heller Ton für Dark Mode (Lesbarkeit) */
+  --on-secondary: #3b005f;
+  --secondary-container: #6700a3;
+  --on-secondary-container: #f1d9ff;
+
+  /* Secondary #ff5a57 */
+  --tertary: #ff5a57;
+  --on-tertary: #000000;
+  --tertary-container: #7a1513;
+  --on-tertary-container: #ffdad8;
+
+  /* Tertiary #e02f75 */
+  --primary: #e02f75;
+  --on-primary: #ffffff;
+  --primary-container: #770d3a;
+  --on-primary-container: #ffd9e5;
+}
+
+header.fixed {
+  top: 1rem !important;
+  left: 1rem;
+  right: 1rem;
+  width: auto;
+  border-radius: 2rem;
+}

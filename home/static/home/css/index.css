@@ -15,3 +15,26 @@ main > div[id] { scroll-margin-top: 6rem; }
   html { scroll-behavior: auto; }
   .js .reveal { transition: none; opacity: 1; transform: none; }
 }
+
+.hover-info {
+  position: relative;
+  overflow: hidden;
+}
+
+.hover-info-card {
+  position: absolute;
+  inset: auto 0 0 0;   /* unten, volle Breite */
+  margin: 0;
+  opacity: 0;
+  transform: translateY(1rem);
+  transition: opacity .25s, transform .25s;
+  pointer-events: none;
+}
+
+.hover-info:hover .hover-info-card,
+.hover-info:focus-within .hover-info-card {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.full-height { height: 100%; }

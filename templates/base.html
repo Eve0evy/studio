@@ -5,10 +5,13 @@
     <meta charset="UTF-8">
     <title>{% block title %}GoPublic{% endblock %}</title>
 
-    <link rel="stylesheet" href="{% static 'beercss/dist/cdn/beer.min.css' %}">
+    <link href="{% static 'beercss/dist/cdn/beer.min.css' %}" rel="stylesheet">
+    <link href="{% static 'css/base.css' %}" rel="stylesheet">
+    <script type="module" src="{% static 'beercss/dist/cdn/beer.min.js' %}"></script>
+    <script type="module" src="{% static 'js/base.js' %}"></script>
     {% block extra_head %}{% endblock %} 
 </head>
-<body class="dark">
-    {% block extra_body %}{% endblock %} 
-</body>
+    <body class="dark">
+        {% block extra_body %}{% endblock %} 
+    </body>
 </html>
