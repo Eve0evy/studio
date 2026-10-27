@@ -1,0 +1,17 @@
+html { scroll-behavior: smooth; }
+main > div[id] { scroll-margin-top: 6rem; }
+
+.js .reveal {
+  opacity: 0;
+  transform: translateY(2rem);
+  transition: opacity .6s ease, transform .6s ease;
+}
+.js .reveal.visible {
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .js .reveal { transition: none; opacity: 1; transform: none; }
+}

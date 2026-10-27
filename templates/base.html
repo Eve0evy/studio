@@ -1,0 +1,14 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}GoPublic{% endblock %}</title>
+
+    <link rel="stylesheet" href="{% static 'beercss/dist/cdn/beer.min.css' %}">
+    {% block extra_head %}{% endblock %} 
+</head>
+<body class="dark">
+    {% block extra_body %}{% endblock %} 
+</body>
+</html>

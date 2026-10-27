@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block extra_head %}
+    <link rel="stylesheet" href="{% static 'home/css/index.css' %}">
+    <script src="{% static 'home/js/index.js' %}" defer></script>
+{% endblock extra_head %}
+
+{% block extra_body %}
+
+{% load static %}
+
+<header class="fixed">
+  <div class="grid blur ">
+    <div class="s12 m3">
+        <img class="small" src="{% static 'logo.svg' %}" alt="Logo">
+    </div>
+    <div class="s12 m6 header-inner center round  padding center-align">
+        <nav class="tabbed">
+          <a class="active" href="#start"><span>Start</span></a>
+          <a href="#ueber-uns"><span>Über uns</span></a>
+          <a href="#leistungen"><span>Leistungen</span></a>
+          <a href="#portfolio"><span>Portfolio</span></a>
+          <a href="#kontakt"><span>Kontakt</span></a>
+        </nav>
+    </div>
+  </div>
+</header>
+
+<main class="responsive">
+    <div class="padding reveal" id="start">{% include "_start.html" %}</div>
+    <div class="padding reveal" id="ueber-uns">{% include "_ueber_uns.html" %}</div>
+    <div class="padding reveal" id="leistungen">{% include "_leistungen.html" %}</div>
+    <div class="padding reveal" id="portfolio">{% include "_portfolio.html" %}</div>
+    <div class="padding reveal" id="kontakt">{% include "_kontakt.html" %}</div>
+</main>
+
+{% endblock extra_body %}
