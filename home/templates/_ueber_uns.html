@@ -1,88 +1,37 @@
-
 <div class="grid">
-  <div class="s12 m9" >
-    <article class="">
+  <div class="s12 m9">
+    <article>
       <h2>Über uns</h2>
-      <p>Wir sind Kris (22) und Jenson (22) aus Niedersachsen und kümmern uns um deinen Auftritt!
-        ‍<br>
-        Unsere Leidenschaft für die Foto- und Videoproduktion prägt uns seit etlichen Jahren vor und hinter der Kamera.
-        ‍<br>
-        Unser Ziel? Immer unser Bestes zu geben, und sich stetig weiterzuentwickeln, sodass du dein perfektes Ergebnis bekommst!
-        ‍<br>
+      <p>Wir sind Kris (22) und Jenson (22) aus Niedersachsen und kümmern uns um deinen Auftritt!<br>
+        Unsere Leidenschaft für die Foto- und Videoproduktion prägt uns seit etlichen Jahren vor und hinter der Kamera.<br>
+        Unser Ziel? Immer unser Bestes zu geben, und sich stetig weiterzuentwickeln, sodass du dein perfektes Ergebnis bekommst!<br>
         Wir stehen nicht nur hinter, sondern auch vor der Kamera und produzieren mit unserer Erfahrung und Equipment für dich den perfekten Content.</p>
     </article>
   </div>
 
-  <div class="s12 m3" >
+  <div class="s12 m3">
     <article class="small-height no-padding center middle">
       <img class="responsive" src="{{ MEDIA_URL }}media/test.jpg" alt="">
     </article>
   </div>
 
-    <div class="s12 m6">
-        <article class="no-margin" style="height: 100%;">
-          <div class="grid no-space l">
-            <div class="s6">
-              <h2>Kris <br> Könnecker</h2>
-              <p class="bottom-align">Mitgründer</p>
-            </div>
-            <div class="s6">
-              <img class="responsive bottom-shadow" src="{{ MEDIA_URL }}media/Karsten.png">
-            </div>
-          </div>
-
-          <div class="d-flex flex-column no-space m">
-            <div>
-              <h2>Kris <br> Könnecker</h2>
-              <p class="bottom-align">Mitgründer</p>
-            </div>
-            <div class="medium">
-              <img class="responsive bottom-shadow" src="{{ MEDIA_URL }}media/Karsten.png">
-            </div>
-          </div>
-
-          <div class="grid no-space s ">
-            <div class="s12 m3">
-              <h2>Kris <br> Könnecker</h2>
-              <p class="bottom-align">Mitgründer</p>
-            </div>
-            <div class="s12 m3">
-              <img class="responsive bottom-shadow" src="{{ MEDIA_URL }}media/Karsten.png">
-            </div>
-          </div>
-        </article>
-    </div>
-<div class="s12 m6">
-         <article class="no-margin" style="height: 100%;">
-          <div class="grid no-space l">
-            <div class="s6">
-              <h2>Jenson <br> Allenbach</h2>
-              <p class="bottom-align">Mitgründer</p>
-            </div>
-            <div class="s6">
-              <img class="responsive bottom-shadow" src="{{ MEDIA_URL }}media/Jenson.png">
-            </div>
-          </div>
-
-          <div class="d-flex flex-column no-space m">
-            <div>
-              <h2>Jenson <br> Allenbach</h2>
-              <p class="bottom-align">Mitgründer</p>
-            </div>
-            <div class="medium">
-              <img class="responsive bottom-shadow" src="{{ MEDIA_URL }}media/Jenson.png">
-            </div>
-          </div>
-
-          <div class="grid no-space s">
-            <div class="s12 m3">
-              <h2>Jenson <br> Allenbach</h2>
-              <p class="bottom-align">Mitgründer</p>
-            </div>
-            <div class="s12 m3">
-              <img class="responsive bottom-shadow" src="{{ MEDIA_URL }}media/Jenson.png">
-            </div>
-          </div>
-        </article>
-    </div>
+  {% include "_person.html" with first="Kris" last="Könnecker" file="Karsten" %}
+  {% include "_person.html" with first="Jenson" last="Allenbach" file="Jenson" %}
 </div>
+
+<script>
+document.addEventListener('click', e => {
+  const b = e.target.closest('.play');
+  if (!b) return;
+  const p = b.closest('.person');
+  p.classList.add('playing');
+  p.querySelector('video').play();
+});
+
+document.addEventListener('ended', e => {
+  const p = e.target.closest('.person');
+  if (!p) return;
+  p.classList.remove('playing');
+  setTimeout(() => e.target.currentTime = 0, 400);
+}, true);
+</script>

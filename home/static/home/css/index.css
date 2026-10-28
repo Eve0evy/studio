@@ -14,27 +14,43 @@ main > div[id] { scroll-margin-top: 6rem; }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   .js .reveal { transition: none; opacity: 1; transform: none; }
-}
-
-.hover-info {
-  position: relative;
-  overflow: hidden;
-}
+}.hover-info { position: relative; overflow: hidden; }
 
 .hover-info-card {
   position: absolute;
-  inset: auto 0 0 0;   /* unten, volle Breite */
+  top: 0; bottom: 0; left: 0;
+  width: 60%;
   margin: 0;
+  border-radius: 0;
+  transform: translateX(-100%);
   opacity: 0;
-  transform: translateY(1rem);
-  transition: opacity .25s, transform .25s;
-  pointer-events: none;
+  transition: transform .4s ease, opacity .4s ease;
 }
 
 .hover-info:hover .hover-info-card,
 .hover-info:focus-within .hover-info-card {
+  transform: translateX(0);
   opacity: 1;
-  transform: translateY(0);
 }
 
 .full-height { height: 100%; }
+
+.person img, .person video, .person .play { transition: opacity .4s ease; }
+.person video {
+  position: absolute; inset: 0;
+  width: 100%; height: 100%; object-fit: cover;
+  opacity: 0; pointer-events: none;
+}
+.person.playing video { opacity: 1; pointer-events: auto; }
+.person.playing img { opacity: 0; }
+.person.playing .play { opacity: 0; pointer-events: none; }
+
+.accordion summary { cursor: pointer; transition: background .2s; }
+.accordion summary:hover { background: color-mix(in srgb, currentColor 8%, transparent); }
+.accordion summary i { transition: transform .3s; }
+.accordion[open] summary i { transform: rotate(180deg); }
+
+.pkg { min-height: 12rem; }  /* verhindert Höhensprünge beim Tab-Wechsel */
+.pkg ul { list-style: none; padding: 0; margin-top: .5rem; }
+.pkg li::before { content: "✓"; margin-right: .5rem; color: var(--primary); }
+.pkg h5 { color: var(--primary); }

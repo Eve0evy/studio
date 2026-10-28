@@ -1,7 +1,7 @@
 {% load static %}
 
 
-<div class="grid" style="width:100%; align-items:center;">
+<div class="grid hero" style="width:100%; align-items:center;">
   <div class="s12 m8 no-padding" style="display:flex; flex-direction:column; justify-content:center; gap:1rem;">
     <article class="padding center-align">
       <h4>Willkommen bei gopublic.studio</h4>
@@ -28,8 +28,9 @@
   </div>
 
   <div class="s12 m4">
-    <video class="center" style=" width: 75%; height: auto; aspect-ratio: 9/16; object-fit: cover; border-radius: 1rem; display: block;"
-           autoplay muted loop playsinline controls>
+    <video class="center"
+          style="width:75%; height:auto; aspect-ratio:9/16; object-fit:cover; border-radius:1rem; display:block;"
+          autoplay playsinline loop controls  preload="auto">
       <source src="{{ MEDIA_URL }}media/phone.mp4" type="video/mp4">
     </video>
   </div>

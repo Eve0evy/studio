@@ -1,0 +1,26 @@
+<div class="s12 m6 l6" style="min-width:0;">
+  <article class="no-padding border" style="height:100%;">
+    <img class="responsive large" src="{{ MEDIA_URL }}media/{{ img }}.jpg">
+    <div class="padding"><h3>{{ title }}</h3></div>
+
+    {% if packages %}
+      {% with n=forloop.counter %}
+      <div class="tabs scroll">
+        {% for p in packages %}
+          <a data-ui="#p{{ n }}-{{ forloop.counter }}" {% if forloop.first %}class="active"{% endif %}>{{ p.name }}</a>
+        {% endfor %}
+      </div>
+      {% for p in packages %}
+        <div class="page padding pkg {% if forloop.first %}active{% endif %}" id="p{{ n }}-{{ forloop.counter }}">
+          <h5 class="no-margin">ab {{ p.price }} €</h5>
+          <ul class="list">
+            {% for i in p.items %}<li>{{ i }}</li>{% endfor %}
+          </ul>
+        </div>
+      {% endfor %}
+      {% endwith %}
+    {% else %}
+      <div class="padding">{{ text|linebreaks }}</div>
+    {% endif %}
+  </article>
+</div>

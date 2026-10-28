@@ -3,11 +3,12 @@
 
 {% block extra_head %}
 <link rel="stylesheet" href="{% static 'home/css/index.css' %}">
+<script src="{% static 'home/js/index.js' %}" defer></script>
 {% endblock extra_head %}
 
-{% block extra_body %}
+{% block extra_body %} 
 <div>
-  <header class="fixed large-blur round padding margin">
+  <header class="fixed round padding margin">
   <nav class="l">
     <img class="small-width" src="{{ MEDIA_URL }}/media/logo.png" alt="Logo">
     <nav class="tabbed max center-align ">

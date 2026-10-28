@@ -19,8 +19,11 @@ from django.urls import path, include
 from django.views.generic import TemplateView
 from django.conf import settings
 from django.conf.urls.static import static
+from home.views import DatenschutzView, ImpressumView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path("", include("home.urls")),
+    path("datenschutz/", DatenschutzView.as_view(), name="datenschutz"),
+    path("impressum/", ImpressumView.as_view(), name="impressum"),
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

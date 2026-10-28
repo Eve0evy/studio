@@ -1,46 +1,76 @@
 
-<section id="kontakt">
-  {% for message in messages %}
-    <article class="primary-container"><p>{{ message }}</p></article>
-  {% endfor %}
+<div class="grid">
+  
+  <div class="s12 m6 padding margin">
+    <article>
+      <h2>Stell uns gerne deine Fragen, oder direkt eine individuelle Anfrage!</h2>
+    </article>
+    <article>
+      <p>Für Privat- und Gewerbekunden.
+Einfach anrufen für dein kostenloses Erstgespräch.</p> 
+        <i>phone</i> <span>+49 177 2261322</span>
+    </article>
+    <article class="small">
+      <img class="responsive" src="{{ MEDIA_URL }}/media/A.jpg" alt="{{ p.titel }}">
+    </article>
+  </div>
+  <div class="s12 m6 padding margin">
+    <section id="kontakt">
+      {% for message in messages %}
+        <article class="primary-container"><p>{{ message }}</p></article>
+      {% endfor %}
 
-  <form method="post" action="{% url 'home:home' %}#kontakt" novalidate>
-    {% csrf_token %}
+      <form method="post" action="{% url 'home:home' %}#kontakt" novalidate>
+        {% csrf_token %}
 
-    <div class="field label border{% if form.name.errors %} invalid{% endif %}">
-      {{ form.name }}
-      <label>Vollständiger Name *</label>
-      {% if form.name.errors %}<span class="error">{{ form.name.errors.0 }}</span>{% endif %}
-    </div>
+        <div class="field label border{% if form.name.errors %} invalid{% endif %}">
+          {{ form.name }}
+          <label>Vollständiger Name *</label>
+          {% if form.name.errors %}<span class="error">{{ form.name.errors.0 }}</span>{% endif %}
+        </div>
 
-    <div class="field label border">
-      {{ form.company }}
-      <label>Firmenname</label>
-    </div>
+        <div class="field label border">
+          {{ form.company }}
+          <label>Firmenname</label>
+        </div>
 
-    <div class="field label border{% if form.email.errors %} invalid{% endif %}">
-      {{ form.email }}
-      <label>E-Mail *</label>
-      {% if form.email.errors %}<span class="error">{{ form.email.errors.0 }}</span>{% endif %}
-    </div>
+        <div class="field label border{% if form.email.errors %} invalid{% endif %}">
+          {{ form.email }}
+          <label>E-Mail *</label>
+          {% if form.email.errors %}<span class="error">{{ form.email.errors.0 }}</span>{% endif %}
+        </div>
 
-    <div class="field label border{% if form.phone.errors %} invalid{% endif %}">
-      {{ form.phone }}
-      <label>Telefonnummer *</label>
-      {% if form.phone.errors %}<span class="error">{{ form.phone.errors.0 }}</span>{% endif %}
-    </div>
+        <div class="field label border{% if form.phone.errors %} invalid{% endif %}">
+          {{ form.phone }}
+          <label>Telefonnummer *</label>
+          {% if form.phone.errors %}<span class="error">{{ form.phone.errors.0 }}</span>{% endif %}
+        </div>
 
-    <div class="field textarea label border">
-      {{ form.message }}
-      <label>Wie können wir helfen?</label>
-    </div>
+        <div class="field textarea label border">
+          {{ form.message }}
+          <label>Wie können wir helfen?</label>
+        </div>
 
-    <p class="small-text">
-      Mit dem Absenden erklärst du dich mit der Nutzung deiner Angaben laut
-      <a href="https://gopublic.studio/#" target="_blank" rel="noopener">Datenschutzrichtlinien</a>
-      einverstanden.
-    </p>
+        <p class="small-text">
+          Mit dem Absenden erklärst du dich mit der Nutzung deiner Angaben laut
+          <a href="https://gopublic.studio/#" target="_blank" rel="noopener">Datenschutzrichtlinien</a>
+          einverstanden.
+        </p>
 
-    <button type="submit" class="large">Absenden</button>
-  </form>
-</section>,
+        <button type="submit" class="large">Absenden</button>
+      </form>
+    </section>
+  </div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const hash = {% if open_kontakt %}'#kontakt'{% else %}location.hash{% endif %};
+  const page = hash && document.querySelector(hash + '.page');
+  if (!page) return;
+  document.querySelectorAll('.page.active').forEach(p => p.classList.remove('active'));
+  page.classList.add('active');
+  document.querySelectorAll('a[data-ui]').forEach(a =>
+    a.classList.toggle('active', a.dataset.ui === hash));
+});
+</script>

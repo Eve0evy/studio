@@ -3,15 +3,29 @@
 <html lang="de">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>{% block title %}GoPublic{% endblock %}</title>
 
+    <link rel="preload" href="{% static 'beercss/dist/cdn/material-symbols-outlined.woff2' %}" as="font" type="font/woff2" crossorigin>
     <link href="{% static 'beercss/dist/cdn/beer.min.css' %}" rel="stylesheet">
     <link href="{% static 'css/base.css' %}" rel="stylesheet">
+    <noscript><style>body { opacity: 1 !important; }</style></noscript>
+
     <script type="module" src="{% static 'beercss/dist/cdn/beer.min.js' %}"></script>
     <script type="module" src="{% static 'js/base.js' %}"></script>
-    {% block extra_head %}{% endblock %} 
+    {% block extra_head %}{% endblock %}
 </head>
-    <body class="dark">
-        {% block extra_body %}{% endblock %} 
-    </body>
+<body class="dark">
+    {% block extra_body %}{% endblock %}
+    <footer class="padding margin">
+        <div class="">
+        <img class="large-width" src="{{ MEDIA_URL }}/media/logo.png" alt="Logo">
+        </div>
+        <div>
+            <p>© gopublic.studio GbR 2026. Alle Rechte vorbehalten</p>
+            <a href="datenschutz">Datenschutz</a>
+            <a href="impressum">Impressum</a>
+        </div>
+    </footer>
+</body>
 </html>
