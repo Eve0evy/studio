@@ -21,21 +21,20 @@
     <div class="small-width"></div>
   </nav>
 
-  <nav class="s m middle-align no-margin no-padding">
-    <button class="circle transparent rigth">
+    <div class="s m ">
+  <button class="circle transparent">
       <i>menu</i>
-      <menu class="right small-width blur">
+    </button>
+      <menu class="blur padding">
         <li data-ui="#start">Start</li>
         <li data-ui="#ueber-uns">Über uns</li>
         <li data-ui="#leistungen">Leistungen</li>
         <li data-ui="#portfolio">Portfolio</li>
         <li data-ui="#kontakt">Kontakt</li>
       </menu>
-    </button>
-    
-    <div class="max"></div>
     <img class="small-width" src="{{ MEDIA_URL }}/media/logo.png" alt="Logo">
-  </nav>
+      </div>
+
 </header>
   <main>
     <div class="page right padding active" id="start">{% include "_start.html" %}</div>

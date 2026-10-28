@@ -1,5 +1,5 @@
 <div class="grid">
   {% for s in services %}
-    {% include "_service.html" with img=s.img title=s.title packages=s.packages text=s.text %}
-  {% endfor %}
+  {% include "_service.html" with n=forloop.counter title=s.title img=s.img packages=s.packages text=s.text %}
+{% endfor %}
 </div>
